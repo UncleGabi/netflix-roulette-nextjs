@@ -1,0 +1,135 @@
+.movies_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 100px;
+  width: 90%;
+  max-height: 1000px;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.movies_list::-webkit-scrollbar {
+  display: none;
+}
+
+.content {
+  width: 100vw;
+  height: fit-content;
+}
+
+.movies__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #232323;
+  color: #fff;
+  padding-bottom: 50px;
+}
+
+.movies_header {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 25px 0 0;
+  border-bottom: 1px solid #fff;
+}
+
+.movies_header ul {
+  display: flex;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+.movies_header ul li {
+  position: relative;
+  top: 1px;
+  height: 35px;
+  padding: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.movies_header ul li:hover {
+  border-bottom: 1px solid #f65261;
+}
+
+.movies_header ul li .active {
+  border-bottom: 1px solid #f65261;
+}
+
+.movies_header a {
+  text-decoration: none;
+  color: white;
+}
+
+.movies_handler {
+  position: relative;
+  display: flex;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.movies_handler .sort_dropdown {
+  position: absolute;
+  top: 35px;
+  width: 150px;
+  height: fit-content;
+  padding: 10px 0;
+  background-color: #232323;
+  border: 1px solid #555;
+  z-index: 5;
+}
+
+.movies_handler .sort_dropdown div {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+.movies_handler .sort_dropdown div:hover {
+  background-color: #f65261;
+}
+
+.movies_handler div {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.movies_handler .release_date {
+  position: relative;
+}
+
+.movies_handler .release_date .arrow_up {
+  position: absolute;
+  top: 7px;
+  left: calc(100% + 5px);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #f65261;
+  border-radius: 1px;
+}
+
+.movies_handler .release_date .arrow_down {
+  position: absolute;
+  top: 7px;
+  left: calc(100% + 5px);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #f65261;
+  border-radius: 1px;
+}
+
+.movies_found {
+  width: 90%;
+  margin: 10px 0 20px;
+}
+
+.movies_found span {
+  font-weight: bold;
+}

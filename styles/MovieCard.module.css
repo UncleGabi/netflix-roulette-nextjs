@@ -1,0 +1,87 @@
+.movie_card {
+  position: relative;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.movie_card:hover .edit_container .edit_icon {
+  opacity: 1;
+  z-index: 10;
+}
+
+.movie_card .edit_container .edit_dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50%;
+  height: fit-content;
+  padding: 30px 0 5px;
+  background-color: #232323;
+  z-index: 10;
+}
+
+.movie_card .edit_container .edit_dropdown__data {
+  margin: 5px 0;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.movie_card .edit_container .edit_dropdown__data:hover {
+  background-color: #f65261;
+}
+
+.movie_card .edit_container .edit_dropdown .close_btn {
+  position: absolute;
+  top: 0px;
+  right: 7px;
+  font-size: 30px;
+  transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);
+  cursor: pointer;
+}
+
+.movie_card .edit_container .edit_icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  background-color: #232323;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 250ms;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.movie_card img {
+  width: 100%;
+  height: 750px;
+}
+
+.movie_card .movie_details {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0 5px;
+  font-size: 14px;
+}
+
+.movie_card .movie_details .movie_title {
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.movie_card .movie_details .release_year {
+  color: white;
+  padding: 5px 10px;
+  border: 1px solid #979797;
+  border-radius: 3px;
+}
+
+.movie_card .genres {
+  color: #979797;
+}

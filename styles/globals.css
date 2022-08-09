@@ -13,6 +13,11 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
 }
 
 @media (prefers-color-scheme: dark) {
