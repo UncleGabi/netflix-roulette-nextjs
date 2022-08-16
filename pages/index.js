@@ -18,9 +18,11 @@ function Home({ fetchedMovies }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
   const res = await fetch(`http://localhost:4000/movies`);
   const fetchedMovies = await res.json();
+  const { params } = context;
+  console.log("fetchedMovies", fetchedMovies);
 
   return {
     props: {

@@ -1,38 +1,36 @@
 import React, { useEffect, useState } from "react";
-import Router from "next/router";
-// import { useSearchParams } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-// import {
-//   addMovie,
-//   selectAllMovies,
-//   setEditedMoive,
-//   setSearchMovieTitle,
-// } from "../../features/MoviesSlice";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useAppDispatch, useAppSelector } from "../../app/redux-hooks";
-
-// import Modal from "../Common/Modal/Modal";
-// import Form from "../Common/Modal/Form/Form";
-
-// CSS  MUST BE REFACTORED!!!
+import Router, { useRouter } from "next/router";
 import headerStyle from "../styles/Header.module.css";
 
 const Header = () => {
-  const [openModal, setOpenModal] = useState(false);
-  //   const [searchParams, setSearchParams] = useSearchParams();
-  //   const [title, setTitle] = useState(searchParams.get("title") || "");
+  const router = useRouter();
+  const { query, pathname } = router;
   const [title, setTitle] = useState("");
-  //   const dispatch = useDispatch();
-  //   const { editedMovie, searchMovieTitle } = useSelector(selectAllMovies);
 
   const handleChange = (e) => {
     setTitle(e.target.value);
-    // dispatch(setSearchMovieTitle(e.target.value));
   };
 
   const handleSearch = () => {
-    //   const currentParams = Object.fromEntries(searchParams.entries());
-    Router.push({ query: { title } });
+    console.log("Object.keys(params)", Object.keys(query));
+    if (title) {
+      Router.push({ query: { ...query, title } });
+    } else {
+      Object.keys(query).forEach((param) => {
+        if (param === "title") {
+          console.log("param is title", param);
+          delete query[param];
+        }
+      });
+      router.replace(
+        {
+          pathname,
+          query,
+        },
+        undefined,
+        { shallow: true }
+      );
+    }
   };
 
   return (
@@ -44,16 +42,6 @@ const Header = () => {
         <button
           onClick={() => {
             setOpenModal(true);
-            // dispatch(
-            //   setEditedMoive({
-            //     title: "",
-            //     vote_average: 0,
-            //     genres: [],
-            //     release_date: new Date().toLocaleDateString(),
-            //     runtime: 0,
-            //     overview: "",
-            //   })
-            // );
           }}
         >
           + Add movie
@@ -83,28 +71,6 @@ const Header = () => {
           </button>
         </div>
       </div>
-      {/* {openModal && (
-        <Modal
-          title="Add movie"
-          width={900}
-          height={750}
-          primaryButtonFn={() => {
-            // dispatch(
-            //   addMovie({
-            //     id: uuidv4(),
-            //     ...editedMovie,
-            //     release_date:
-            //       editedMovie.release_date || new Date().toLocaleDateString(),
-            //   })
-            // );
-            setOpenModal(undefined);
-          }}
-          secondaryButtonFn={() => setOpenModal(undefined)}
-          setOpenModal={setOpenModal}
-        >
-          <Form />
-        </Modal>
-      )} */}
     </header>
   );
 };
